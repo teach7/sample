@@ -31,6 +31,7 @@ node {
             tlModelPath = "powerwindow_tl_v01.slx"
             tlScriptPath = "start.m"
             matlabVersion = "2017b"
+			licenseLocationString = "27001@OL8U3R2"
         }
     }
     
