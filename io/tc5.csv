@@ -1,0 +1,6 @@
+Architecture;TargetLink
+Scope;power_window_controller/Subsystem/power_window_controller/validate_driver
+Name;tc5
+State;up;down;endstop_top;endstop_bottom;validated_neutral;validated_up;validated_down
+0;0;0;0;0;;;
+
