@@ -28,7 +28,7 @@ node {
         // BTC: load / create / update a profile
         r = btc.profileCreateTL {
             profilePath = "profileTL.epp"
-            tlModelPath = "powerwindow_tl_v01.slx"
+            tlModelPath = "powerwindow_tl.slx"
             tlScriptPath = "start.m"
             matlabVersion = "2018b"
         }
