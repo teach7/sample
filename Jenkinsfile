@@ -31,8 +31,6 @@ node {
             tlModelPath = "powerwindow_tl.slx"
             tlScriptPath = "start.m"
             matlabVersion = "2018b"
-            matlabInstancePolicy = "NEVER"
-            licenseLocationString = "C:\Users\BTCJ_support\Documents\BTC\license\EP25_TaIt_44-03-2C-62-45-03.lic@169.254.241.100"
         }
     }
     
