@@ -52,7 +52,9 @@ node {
     }
     
     stage ("Test Execution") {
-        r = btc.rbtExecution {}
+        r = btc.rbtExecution {
+            executionConfigString = "TL MIL"
+        }
         if (r >= 300)
             throw new Exception("Step exited with code ${r}")
     }
