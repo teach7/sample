@@ -47,7 +47,7 @@ node {
             importDir = "io"
             vectorFormat = "CSV"
         }
-        if (r != 200)
+        if (r > 300)
             throw new Exception("Step exited with code ${r}")
     }
     
