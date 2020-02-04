@@ -38,6 +38,13 @@ node {
     stage ("Vector Import") {
         r = btc.vectorImport {
             importDir = "io"
+            vectorFormat = "EXCEL"
+        }
+        if (r != 200)
+            throw new Exception("Step exited with code ${r}")
+
+        r = btc.vectorImport {
+            importDir = "io"
             vectorFormat = "CSV"
         }
         if (r != 200)
