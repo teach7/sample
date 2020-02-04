@@ -74,6 +74,7 @@ node {
 				throw new Exception("Step exited with code ${r}")
         */
         r = btc.vectorGeneration {
+            pll = "MCDC; RO; DZ; CA"
         }
         if (r >= 500)
             throw new Exception("Step exited with code ${r}")
