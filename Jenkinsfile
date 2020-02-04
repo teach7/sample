@@ -28,38 +28,34 @@ node {
         // BTC: load / create / update a profile
         r = btc.profileCreateTL {
             profilePath = "profileTL.epp"
-            tlModelPath = "powerwindow_tl_v01.slx"
+            tlModelPath = "powerwindow_tl.slx"
             tlScriptPath = "start.m"
-            matlabVersion = "2017b"
-			licenseLocationString = "27001@OL8U3R2"
+            matlabVersion = "2018b"
+            licenseLocationString = "27001@OL8U3R2"
         }
     }
     
     stage ("Vector Import") {
         r = btc.vectorImport {
             importDir = "io"
+            vectorFormat = "EXCEL"
         }
         if (r != 200)
             throw new Exception("Step exited with code ${r}")
-        
-        r = btc.vectorImport {
-            importDir = "io"
-            vectorFormat = "TC"
-        }
-        if (r != 200)
-            throw new Exception("Step exited with code ${r}")
-        
+
         r = btc.vectorImport {
             importDir = "io"
             vectorFormat = "CSV"
         }
-        if (r != 200)
+        if (r > 300)
             throw new Exception("Step exited with code ${r}")
     }
     
     stage ("Test Execution") {
-        r = btc.rbtExecution {}
-        if (r >= 400)
+        r = btc.rbtExecution {
+            executionConfigString = "TL MIL"
+        }
+        if (r >= 300)
             throw new Exception("Step exited with code ${r}")
     }
     
@@ -78,7 +74,7 @@ node {
 				throw new Exception("Step exited with code ${r}")
         */
         r = btc.vectorGeneration {
-            pll = "STM" // RVG, DCG
+            pll = "MCDC; RO; DZ; CA"
         }
         if (r >= 500)
             throw new Exception("Step exited with code ${r}")
@@ -88,8 +84,9 @@ node {
         r = btc.backToBack {
             reference = "TL MIL"
             comparison = "SIL"
+            debugConfigString = "TL MIL"
         }
-        if (r >= 400)
+        if (r > 300)
             throw new Exception("Step exited with code ${r}")
     }
 
