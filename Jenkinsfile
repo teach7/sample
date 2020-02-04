@@ -53,7 +53,7 @@ node {
     
     stage ("Test Execution") {
         r = btc.rbtExecution {}
-        if (r >= 400)
+        if (r >= 300)
             throw new Exception("Step exited with code ${r}")
     }
     
@@ -83,7 +83,7 @@ node {
             reference = "TL MIL"
             comparison = "SIL"
         }
-        if (r >= 400)
+        if (r >= 300)
             throw new Exception("Step exited with code ${r}")
     }
 
