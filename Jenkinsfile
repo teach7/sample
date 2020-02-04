@@ -74,7 +74,6 @@ node {
 				throw new Exception("Step exited with code ${r}")
         */
         r = btc.vectorGeneration {
-            pll = "STM" // RVG, DCG
         }
         if (r >= 500)
             throw new Exception("Step exited with code ${r}")
@@ -84,8 +83,9 @@ node {
         r = btc.backToBack {
             reference = "TL MIL"
             comparison = "SIL"
+            debugConfigString = "TL MIL"
         }
-        if (r >= 300)
+        if (r > 300)
             throw new Exception("Step exited with code ${r}")
     }
 
