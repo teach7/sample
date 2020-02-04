@@ -31,23 +31,11 @@ node {
             tlModelPath = "powerwindow_tl.slx"
             tlScriptPath = "start.m"
             matlabVersion = "2018b"
+            licenseLocationString = "27001@OL8U3R2"
         }
     }
     
     stage ("Vector Import") {
-        r = btc.vectorImport {
-            importDir = "io"
-        }
-        if (r != 200)
-            throw new Exception("Step exited with code ${r}")
-        
-        r = btc.vectorImport {
-            importDir = "io"
-            vectorFormat = "TC"
-        }
-        if (r != 200)
-            throw new Exception("Step exited with code ${r}")
-        
         r = btc.vectorImport {
             importDir = "io"
             vectorFormat = "CSV"
